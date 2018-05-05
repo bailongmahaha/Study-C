@@ -1,25 +1,19 @@
 # include <stdio.h>
 
-void OutArr(int * pArr, int len)
+struct Student
 {
-	//pArr[2] = 10; //pArr[2] == *(pArr+2) == *(a+2) == a[2]
-	int i;
-	
-	for (i=0; i<len; ++i)
-		printf("%d\n", pArr[i]);
-}
+	int age;
+	char sex;
+	char name[100];
+}; //分号不能省
 
 int main(void)
 {
-	int a[5] = {1,2,3,4,5};
-
-//	printf("%d\n", a[2]);
-	OutArr(a, 5);
-//	printf("%d\n", a[2]);
-//	a = &a[2]; //error  因为a是常量
-
-//	printf("%#X, %#X\n", a, &a[0]);
-//	a ==  &a[0]
+	struct Student st = {20, 'F', "小娟"};
+	struct Student * pst = &st;
+	
+	printf("%d %c %s\n", st.age, st.sex, st.name);
+	printf("%d %c %s\n", pst->age, pst->sex, pst->name);  //pst->age 转化成 (*pst).age 等价于 st.age
 
 	return 0;
 }

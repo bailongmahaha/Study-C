@@ -1,11 +1,15 @@
 # include <stdio.h>
 
+void f(int * p)
+{
+	*p = 10; // i = 10;
+}
+
 int main(void)
 {
-	int i;
+	int i = 5;
 
-	//scanf("%d\n", &i);  //非常不好的格式, 不要加 \n
-	scanf("%d", &i);
+	f(&i);
 	printf("i = %d\n", i);
 
 	return 0;

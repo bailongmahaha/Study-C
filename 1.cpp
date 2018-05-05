@@ -1,21 +1,25 @@
-/*
-1+1/2+1/3+1/4+1/5+...+1/100=?
-*/
-
 # include <stdio.h>
+
+void OutArr(int * pArr, int len)
+{
+	//pArr[2] = 10; //pArr[2] == *(pArr+2) == *(a+2) == a[2]
+	int i;
+	
+	for (i=0; i<len; ++i)
+		printf("%d\n", pArr[i]);
+}
 
 int main(void)
 {
-	int i;
-	float sum = 0;
+	int a[5] = {1,2,3,4,5};
 
-	for (i=1; i<=100; ++i)
-	{
-		sum = sum + 1.0/i;   //是OK的 推荐使用
-			//sum = sum + (float)(1/i); 这样写是不对的 
-			//也可以这样写:  sum = sum + 1 / (float)(i);   不推荐
-	}
-	printf("sum = %f\n", sum);  //float必须用%f输出
+//	printf("%d\n", a[2]);
+	OutArr(a, 5);
+//	printf("%d\n", a[2]);
+//	a = &a[2]; //error  因为a是常量
+
+//	printf("%#X, %#X\n", a, &a[0]);
+//	a ==  &a[0]
 
 	return 0;
 }

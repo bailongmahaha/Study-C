@@ -1,16 +1,15 @@
 # include <stdio.h>
 
-void f(int * p)
+void f(int i)
 {
-	*p = 10; // i = 10;
+	i = 99;
 }
 
 int main(void)
 {
-	int i = 5;
-
-	f(&i);
+	int i = 6;
 	printf("i = %d\n", i);
-
+	f(i);
+	printf("i = %d\n", i);
 	return 0;
 }

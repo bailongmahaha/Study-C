@@ -1,13 +1,19 @@
 # include <stdio.h>
 
+struct Student
+{
+	int age;
+	char sex;
+	char name[100];
+}; //分号不能省
+
 int main(void)
 {
-	int i = 33;
-
-	printf("i = %#X\n", i);//%X是以十六进制打印，并且a到f打印出来的是大写的A,B,C,D,E,F
-
-	//如果是%#X,则会在打印的十六进制结果前面加上0X。	
+	struct Student st = {20, 'F', "小娟"};
+	struct Student * pst = &st;
+	
+	printf("%d %c %s\n", st.age, st.sex, st.name);
+	printf("%d %c %s\n", pst->age, pst->sex, pst->name);  //pst->age 转化成 (*pst).age 等价于 st.age
 
 	return 0;
 }
-
